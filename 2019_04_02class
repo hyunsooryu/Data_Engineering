@@ -1,0 +1,32 @@
+class Car():
+    count = 0
+
+    def __init__(self, size, num):
+        self.size = size
+        self.count = num
+        Car.count += 1
+        print("자동차 객체의 수 : {}" .format(Car.count))
+    def move(self, speed):
+        self.speed = speed
+        print("자동차 ({} & {}) 가 움직입니다." .format(self.size, self.size))
+        print("{} 스피드로 전진 " .format(self.speed))
+    def auto_cruise(self):
+        print("자율주행모드")
+        self.move(self.speed)
+
+    @staticmethod
+    def check_type(model_code):
+        if model_code >= 20 :
+            print("이 차는 전기차입니다.")
+        elif model_code >= 10 and model_code < 20:
+            print("이 차는 가솔린차입니다.")
+        else:
+            print("이 차는 디젤차입니다.")
+    @classmethod
+    def count_instance(cls):
+        print("자동차 객체의 개수 :  {}" .format(cls.count))
+
+print("Car 클래스 인스턴스의 총 개수 : {}".format(Car.count))
+print("***********************************************************************")
+Car.check_type(400)
+Car.count_instance()
